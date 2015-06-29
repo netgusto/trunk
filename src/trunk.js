@@ -1,7 +1,7 @@
 'use strict';
 
 const isPromise = function(value) {
-    return value instanceof Promise || (typeof value === 'object' && 'then' in value && typeof value.then === 'function');
+    return value instanceof Promise || (value !== null && value !== undefined && typeof value === 'object' && 'then' in value && typeof value.then === 'function');
 };
 
 const recursivePromises = function(defs, built = {}) {
@@ -152,6 +152,8 @@ class Trunk {
     add(...args) {
         return this.service(...args);
     }
+
+    get(name) { return this.service(name); }
 
     service(name, deps, factory = null) {
         if(deps === undefined) {

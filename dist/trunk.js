@@ -9,7 +9,7 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var isPromise = function (value) {
-    return value instanceof Promise || typeof value === 'object' && 'then' in value && typeof value.then === 'function';
+    return value instanceof Promise || value !== null && value !== undefined && typeof value === 'object' && 'then' in value && typeof value.then === 'function';
 };
 
 var recursivePromises = function (defs) {
@@ -192,6 +192,11 @@ var Trunk = (function () {
         key: 'add',
         value: function add() {
             return this.service.apply(this, arguments);
+        }
+    }, {
+        key: 'get',
+        value: function get(name) {
+            return this.service(name);
         }
     }, {
         key: 'service',
