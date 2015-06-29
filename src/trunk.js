@@ -113,7 +113,6 @@ const compile = function(graph) {
 
     return new Promise(resolve => {
         recursivePromises(definitions).then(function(built) {
-            console.log('resolve');
             resolve(built);
         }).catch(e => console.log(e.stack));
     });

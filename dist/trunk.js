@@ -149,7 +149,6 @@ var _compile = function (graph) {
 
     return new Promise(function (resolve) {
         recursivePromises(definitions).then(function (built) {
-            console.log('resolve');
             resolve(built);
         }).catch(function (e) {
             return console.log(e.stack);
