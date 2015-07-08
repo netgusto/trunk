@@ -195,10 +195,7 @@ class Trunk {
             trunk[name] = this.service(name);
         }
 
-        return function* (next) {
-            this.trunk = trunk;
-            yield next;
-        }
+        return trunk;
     }
 }
 

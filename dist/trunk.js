@@ -264,10 +264,7 @@ var Trunk = (function () {
                 }
             }
 
-            return function* (next) {
-                this.trunk = trunk;
-                yield next;
-            };
+            return trunk;
         }
     }, {
         key: 'services',
